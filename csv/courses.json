@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c7d"
+  },
+  "name": "東京",
+  "location": "east",
+  "is_main": true
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c7e"
+  },
+  "name": "中山",
+  "location": "east",
+  "is_main": true
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c7f"
+  },
+  "name": "阪神",
+  "location": "west",
+  "is_main": true
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c80"
+  },
+  "name": "京都",
+  "location": "west",
+  "is_main": true
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c81"
+  },
+  "name": "小倉",
+  "location": "west",
+  "is_main": false
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c82"
+  },
+  "name": "札幌",
+  "location": "east",
+  "is_main": false
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c83"
+  },
+  "name": "函館",
+  "location": "east",
+  "is_main": false
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c84"
+  },
+  "name": "新潟",
+  "location": "east",
+  "is_main": false
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c85"
+  },
+  "name": "中京",
+  "location": "",
+  "is_main": false
+},{
+  "_id": {
+    "$oid": "60dea3dc524b797b10d54c86"
+  },
+  "name": "福島",
+  "location": "east",
+  "is_main": false
+}]
