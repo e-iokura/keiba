@@ -9,5 +9,4 @@ class _db_config:
             raise self.ConstError("Can't rebind const (%s)" % name)
         self.__dict__[name] = value
 
-
 sys.modules[__name__] = _db_config()
