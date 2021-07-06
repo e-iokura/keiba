@@ -1,7 +1,7 @@
-import const
-import urls
-import db_config
-import class_const
+from config import const
+from config import urls
+from config import db_config
+from config import class_const
 
 def set_const_values():
     urls.DATABASE_URL = "https://db.netkeiba.com/"
@@ -11,19 +11,23 @@ def set_const_values():
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
         }
     const.DATE_URL_PATTERN = "\/top\/race_list.html\?kaisai_date=(.*)$"
-    const.RACE_LIST_PATTERN = "\/race\/result.html\?race_id=(.*)&amp;rf=race_list"
+    const.RACE_LIST_PATTERN = "\/race\/result.html\?race_id=(.*)&rf=race_list"
+    const.HORSE_ID_PATTERN = "\/horse\/(.*)$"
+    const.JOCKEY_ID_PATTERN = "\/jockey\/(.*)\/"
     const.GRADE_CLASS_PATTERN = "Icon_GradeType[0-9]+"
     const.INTERVAL_TIME = 3
+    const.CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe"
 
     class_const.PICKUP_RACE_BOX_CLASS = "Jra_RaceList_Inner RaceInfo"
     class_const.SUB_PICKUP_RACE_BOX_CLASS = "RaceMostRecentBox"
-    class_const.RACE_RESULT_TABLE_CLASS = "race_table_01 nk_tb_common"
+    class_const.RACE_RESULT_ROW_LIST_CLASS = "HorseList"
     class_const.CALENDAR_TABLE_CLASS = "Calendar_Table"
     class_const.DATE_CELL_BOX_CLASS = "RaceCellBox"
     class_const.RACE_LIST_ITEM_CLASS = "RaceList_DataItem"
-    class_const.OPEN_GRADE_CLASS_LIST = ["Icon_GradeType1", "Icon_GradeType2", \
-        "Icon_GradeType3""Icon_GradeType15", "Icon_GradeType5"]
+    class_const.OPEN_GRADE_CLASS_LIST = ["Icon_GradeType1", "Icon_GradeType2", "Icon_GradeType3""Icon_GradeType15", "Icon_GradeType5", \
+        "Icon_GradeType16", "Icon_GradeType17", "Icon_GradeType18"]
     class_const.RACE_LIST_ITEM_TITLE_CLASS = "RaceList_ItemTitle"
+    class_const.RACE_INFO_BOX_CLASS = "RaceList_NameBox"
 
     db_config.DB_HOST = "mongodb://127.0.0.1:27017/"
     db_config.DB_USER_NAME = "keiba"
@@ -41,3 +45,14 @@ def get_grade_name(grade_type):
         return "Listed"
     if grade_type == "Icon_GradeType5":
         return "Open"
+    if grade_type == "Icon_GradeType16":
+        return "3勝クラス"
+    if grade_type == "Icon_GradeType17" or "2勝" in grade_type:
+        return "2勝クラス"
+    if grade_type == "Icon_GradeType18" or "1勝" in grade_type:
+        return "1勝クラス"
+    if "未勝利" in grade_type:
+        return "未勝利"
+    if "メイクデビュー" in grade_type or "新馬" in grade_type:
+        return "新馬"
+    return ""

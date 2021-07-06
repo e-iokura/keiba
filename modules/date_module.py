@@ -1,16 +1,13 @@
 from config import const
 from config import urls
 from config import class_const
-import datetime
 from utils import re_util
 from utils import url_connect
 from scraping import html_parser
 from data import kaisai_date
 
 def load_dates(year, month):
-    today = datetime.date.today
-    url = urls.RACE_URL + "top/calendar.html?year=" \
-         + str(today.year if year == None else year) + "&month=" + str(today.month if month == None else month)
+    url = urls.RACE_URL + "top/calendar.html?year=" + str(year) + "&month=" + str(month)
     html_text = url_connect.request_get(url)
     calendar = html_parser.get_from_text(html_text, "table", class_const.CALENDAR_TABLE_CLASS)
     dates = html_parser.get_elements(calendar, "td", class_const.DATE_CELL_BOX_CLASS)

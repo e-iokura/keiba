@@ -10,6 +10,19 @@ def get_from_text(html_text, tag, class_name = None):
         traceback.print_exc()
         return None
 
+def get_all_from_text(html_text, tag, class_name = None):
+    try:
+        bs = bs4.BeautifulSoup(html_text, 'html.parser')
+        return bs.find_all(tag, class_=class_name) \
+            if class_name != None else bs.find_all(tag)
+    except:
+        traceback.print_exc()
+        return None
+
+def get_children(parent, tag, class_name=None):
+    element = parent.find(tag, class_=class_name)
+    return element.children
+
 def get_element(parent, tag, class_name=None):
     return parent.find(tag, class_=class_name) \
         if class_name != None else parent.find(tag)
