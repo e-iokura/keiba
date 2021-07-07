@@ -4,6 +4,17 @@ from config import db_config
 from config import class_const
 
 def set_const_values():
+    """
+    アプリケーションで使用される定数値を設定する。
+
+    Notes
+    -----
+    各定数値モジュールに定数を設定する
+    1. urls:使用するURLモジュール
+    2. const:アプリケーション定数モジュール
+    3. class_const:スクレイピングで使用するクラス名モジュール
+    4. db_config:接続DB設定値モジュール
+    """
     urls.DATABASE_URL = "https://db.netkeiba.com/"
     urls.RACE_URL = "https://race.netkeiba.com/"
 
@@ -15,7 +26,7 @@ def set_const_values():
     const.HORSE_ID_PATTERN = "\/horse\/(.*)$"
     const.JOCKEY_ID_PATTERN = "\/jockey\/(.*)\/"
     const.GRADE_CLASS_PATTERN = "Icon_GradeType[0-9]+"
-    const.INTERVAL_TIME = 3
+    const.INTERVAL_TIME = 5
     const.CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe"
 
     class_const.PICKUP_RACE_BOX_CLASS = "Jra_RaceList_Inner RaceInfo"
