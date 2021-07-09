@@ -6,7 +6,7 @@ def insert(data):
 
     Parameters
     ----------
-    data:dict
+    data:list of dict
         レース情報一覧
     """
     db = test_db_client.get_db()
@@ -23,14 +23,14 @@ def get_not_exist_data(data):
 
     Parameters
     ----------
-    data:list
+    data:list of dict
         レース情報一覧
 
     Returns
     -------
-    not_exist_data:dict
+    not_exist_data:list of dict
         引数のレース一覧の内keiba_db.racesコレクションに存在しないレース情報一覧
     """
     db = test_db_client.get_db()
-    races = db.races.find()
-    return [race for race in data if races.count({"race_id":race['race_id']}) == 0]
+    races = [race['race_id'] for race in db.races.find()]
+    return [race for race in data if race['race_id'] not in races]

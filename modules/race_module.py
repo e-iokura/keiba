@@ -8,6 +8,7 @@ from utils import selenium_util
 from utils import re_util
 from scraping import html_parser
 from data import race
+from data import kaisai_date
 
 
 def parse_dates(kaisai_dates):
@@ -17,12 +18,12 @@ def parse_dates(kaisai_dates):
 
     Parameters
     ----------
-    kaisai_dates:dict
+    kaisai_dates:list of dict
         keiba_db.datesコレクションのリスト
 
     Returns
     -------
-    dates:dict
+    dates:list of dict
         keiba_db.datesコレクションのリストから開催日の重複をなくしてdatetimeの値を付加したリスト
     """
     dates = []
@@ -42,12 +43,12 @@ def load_races(kaisai_dates):
 
     Parameters
     ----------
-    kaisai_dates:dict
+    kaisai_dates:list of dict
         開催データ一覧
 
     Returns
     -------
-    not_exist_data:dict
+    not_exist_data:list of dict
         DBに存在しないレース情報一覧
     """
     dates = parse_dates(kaisai_dates)
@@ -80,3 +81,8 @@ def load_races(kaisai_dates):
     selenium_util.close_chrome()
     not_exist_data = race.get_not_exist_data(data)
     return not_exist_data
+
+
+def load_races_from_dates():
+    kaisai_dates = kaisai_date.get_dates()
+    return load_races(kaisai_dates)
