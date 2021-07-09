@@ -22,7 +22,8 @@ def load_dates(year, month):
 
     Returns
     -------
-        date_info:開催データ一覧
+    date_info:list of dict
+        開催データ一覧
     """
     date_info = []
     url = urls.RACE_URL + "top/calendar.html?year=" + str(year) + "&month=" + str(month)
@@ -47,7 +48,7 @@ def register_dates():
 
     Returns
     -------
-    data:dict
+    data:list of dict
         新規で挿入したkeiba_db.datesコレクションのリスト
     """
     today = datetime.date.today()

@@ -25,8 +25,12 @@ def set_const_values():
     const.RACE_LIST_PATTERN = "\/race\/result.html\?race_id=(.*)&rf=race_list"
     const.HORSE_ID_PATTERN = "\/horse\/(.*)$"
     const.JOCKEY_ID_PATTERN = "\/jockey\/(.*)\/"
+    const.STABLE_ID_PATTERN = "\/trainer\/(.*)\/"
+    const.OWNER_ID_PATTERN = "\/owner\/(.*)\/"
+    const.FARM_ID_PATTERN = "\/breeder\/(.*)\/"
+    const.BLOOD_ID_PATTERN = "\/horse\/ped\/(.*)\/"
     const.GRADE_CLASS_PATTERN = "Icon_GradeType[0-9]+"
-    const.INTERVAL_TIME = 5
+    const.INTERVAL_TIME = 20
     const.CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe"
 
     class_const.PICKUP_RACE_BOX_CLASS = "Jra_RaceList_Inner RaceInfo"
@@ -39,6 +43,9 @@ def set_const_values():
         "Icon_GradeType16", "Icon_GradeType17", "Icon_GradeType18"]
     class_const.RACE_LIST_ITEM_TITLE_CLASS = "RaceList_ItemTitle"
     class_const.RACE_INFO_BOX_CLASS = "RaceList_NameBox"
+    class_const.HORSE_INFO_TITLE_CLASS = "horse_title"
+    class_const.HORSE_PROFILE_TABLE_CLASS = "db_prof_table"
+    class_const.HORSE_BLOOD_TABLE_CLASS = "blood_table"
 
     db_config.DB_HOST = "mongodb://127.0.0.1:27017/"
     db_config.DB_USER_NAME = "keiba"

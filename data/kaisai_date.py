@@ -6,7 +6,7 @@ def insert_dates(data):
 
     Returns
     -------
-    insert_data:dict
+    insert_data:list of dict
         新規で挿入した開催データ一覧
     """
     db = test_db_client.get_db()
@@ -19,3 +19,15 @@ def insert_dates(data):
             insert_data.append(kaisai_date)
 
     return insert_data
+
+def get_dates():
+    """
+    keiba_db.datesコレクション全件取得。
+
+    Returns
+    -------
+    dates:list of dict
+        開催データ一覧
+    """
+    db = test_db_client.get_db()
+    return db.dates.find()
